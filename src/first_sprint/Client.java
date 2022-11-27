@@ -4,7 +4,7 @@ public class Client extends User{
 	
 	private double walletBalance;
 
-	public Client(String email, boolean type, String password, String username, double walletBalance) {
+	public Client(String email, String type, String password, String username, double walletBalance) {
 		super(email, type, password, username);
 		this.walletBalance = walletBalance;
 	}

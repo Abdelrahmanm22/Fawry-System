@@ -22,10 +22,11 @@ public class Database {
 		      	while (scanner.hasNextLine()) {
 		            String data = scanner.nextLine();
 		            String userData[] = data.split("\\s");
-		            if(Boolean.valueOf(userData[1]))
-		            	users.add(new Client(userData[0], Boolean.valueOf(userData[1]), userData[2], userData[3], Double.valueOf(userData[4])));
+//		            System.out.println(userData[1]);
+		            if(userData[1].equals("client"))
+		            	users.add(new Client(userData[0], userData[1], userData[2], userData[3], Double.valueOf(userData[4])));
 		            else
-		            	users.add(new Admin(userData[0], Boolean.valueOf(userData[1]), userData[2], userData[3], userData[4]));
+		            	users.add(new Admin(userData[0], userData[1], userData[2], userData[3], userData[4]));
 		            //System.out.println(data);
 		          }
 		    } catch (FileNotFoundException e) {

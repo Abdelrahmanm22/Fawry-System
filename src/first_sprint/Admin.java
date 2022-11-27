@@ -4,7 +4,7 @@ public class Admin extends User{
 
 	private String adminId;
 
-	public Admin(String email, boolean type, String password, String username, String adminId) {
+	public Admin(String email, String type, String password, String username, String adminId) {
 		super(email, type, password, username);
 		this.adminId = adminId;
 	}

@@ -5,9 +5,9 @@ public class User {
 	protected String username;
 	protected String email;
 	protected String password;
-	protected boolean type;
+	protected String type;
 	
-	public User(String email, boolean type, String password, String username) {
+	public User(String email, String type, String password, String username) {
 		super();
 		this.username = username;
 		this.email = email;
@@ -26,6 +26,10 @@ public class User {
 
 	public String getPassword() {
 		return password;
+	}
+	
+	public String getType() {
+		return type;
 	}
 
 	@Override

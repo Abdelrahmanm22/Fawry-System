@@ -3,7 +3,13 @@ package first_sprint;
 import java.util.ArrayList;
 
 public class Authentication {
-	
+	String email;
+	String password;
+	public Authentication(String e,String p) {
+		
+		email=e;
+		password=p;
+	}
 	protected Database database = Database.getInstance();
 	
 //	public ArrayList<User> getUsers(){

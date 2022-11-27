@@ -10,7 +10,7 @@ public class Database {
 	private static Database instance = new Database();
 	private Scanner scanner;
 	private static File file = new File("D:\\University\\Advanced SW\\Project\\Phase1\\FawrySystem\\Users.txt");
-	
+
 	private Database() {
 	}
 

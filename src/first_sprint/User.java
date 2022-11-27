@@ -2,26 +2,23 @@ package first_sprint;
 
 public class User {
 
-	protected String name;
-	protected int age;
+	protected String username;
 	protected String email;
 	protected String password;
+	protected boolean type;
 	
-	public User(String name, int age, String email, String password) {
+	public User(String email, boolean type, String password, String username) {
 		super();
-		this.name = name;
-		this.age = age;
+		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.type = type;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserame() {
+		return username;
 	}
 
-	public int getAge() {
-		return age;
-	}
 
 	public String getEmail() {
 		return email;
@@ -33,7 +30,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", age=" + age + ", email=" + email + ", password=" + password + "]";
+		return "User [name=" + username + ", email=" + email + ", password=" + password + "]";
 	}
 	
 	

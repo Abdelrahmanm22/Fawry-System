@@ -2,14 +2,14 @@ package first_sprint;
 
 public class Admin extends User{
 
-	private int adminId;
+	private String adminId;
 
-	public Admin(String name, int age, String email, String password, int adminId) {
-		super(name, age, email, password);
+	public Admin(String email, boolean type, String password, String username, String adminId) {
+		super(email, type, password, username);
 		this.adminId = adminId;
 	}
 
-	public int getAdminId() {
+	public String getAdminId() {
 		return adminId;
 	}
 	
@@ -24,4 +24,12 @@ public class Admin extends User{
 	public void showRefunds() {
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Admin [adminId=" + adminId + ", username=" + username + ", email=" + email + ", password=" + password
+				+ ", type=" + type + "]";
+	}
+	
+	
 }

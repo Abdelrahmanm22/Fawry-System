@@ -4,8 +4,8 @@ public class Client extends User{
 	
 	private double walletBalance;
 
-	public Client(String name, int age, String email, String password, double walletBalance) {
-		super(name, age, email, password);
+	public Client(String email, boolean type, String password, String username, double walletBalance) {
+		super(email, type, password, username);
 		this.walletBalance = walletBalance;
 	}
 
@@ -15,9 +15,11 @@ public class Client extends User{
 
 	@Override
 	public String toString() {
-		return "Client [walletBalance=" + walletBalance + ", name=" + name + ", age=" + age + ", email=" + email
-				+ ", password=" + password + "]";
+		return "Client [walletBalance=" + walletBalance + ", username=" + username + ", email=" + email + ", password="
+				+ password + ", type=" + type + "]";
 	}
+
+	
 	
 	
 }

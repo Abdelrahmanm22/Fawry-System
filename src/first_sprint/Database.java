@@ -2,37 +2,40 @@ package first_sprint;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Database {
 
-	private boolean type;
-	private static String line;
+	private static Database instance = new Database();
 	private Scanner scanner;
-	private static File file;
+	private static File file = new File("D:\\F  C  I\\Fawry_System\\Users.txt");
 	
-	public Database(boolean type) {
-		this.type = type;
-		if(type)
-			file = new File("D:\\F  C  I\\Fawry_System\\Clients.txt");
-		else
-			file = new File("D:\\F  C  I\\Fawry_System\\Admins.txt");
+	private Database() {
 	}
 
 	
-	public String getLine() {
+	public ArrayList<User> getUsers() {
+		ArrayList<User> users = new ArrayList<>();
 		try {
 		      	scanner = new Scanner(file);
-		        line = scanner.nextLine();
-		        scanner.close();
+		      	while (scanner.hasNextLine()) {
+		            String data = scanner.nextLine();
+		            String userData[] = data.split("\\s");
+		            if(Boolean.valueOf(userData[1]))
+		            	users.add(new Client(userData[0], Boolean.valueOf(userData[1]), userData[2], userData[3], Double.valueOf(userData[4])));
+		            else
+		            	users.add(new Admin(userData[0], Boolean.valueOf(userData[1]), userData[2], userData[3], userData[4]));
+		            //System.out.println(data);
+		          }
 		    } catch (FileNotFoundException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
-		return line;
+		return users;
 	}
 	
-	public boolean getType() {
-		return type;
+	public static Database getInstance() {
+		return instance;
 	}
 }

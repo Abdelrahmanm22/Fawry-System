@@ -12,7 +12,7 @@ public class Login extends Authentication{
 	}
 	
 	public User userLogin() {
-		for(User user: getUsers()) {
+		for(User user: database.getUsers()) {
 			if(user.getEmail().equals(email))
 				return user;
 		}
@@ -21,7 +21,7 @@ public class Login extends Authentication{
 	}
 	
 	public boolean verify() {
-		for(User user :getUsers()) {
+		for(User user :database.getUsers()) {
 			if(user.getEmail().equals(email)) {
 				System.out.println(user.toString());
 				if(user.getPassword().equals(password)) {

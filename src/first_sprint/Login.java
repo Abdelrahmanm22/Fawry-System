@@ -1,14 +1,9 @@
 package first_sprint;
 
 public class Login extends Authentication{
-	
-	private String email;
-	private String password;
-	
 	public Login(String email, String password) {
-		super();
-		this.email = email;
-		this.password = password;
+		super(email,password);
+		
 	}
 	
 	public User userLogin() {

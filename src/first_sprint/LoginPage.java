@@ -15,43 +15,35 @@ public class LoginPage {
 			Boolean ok;
 			ok=input.nextBoolean();
 			if(ok) {
-			         System.out.println("Email:");
-			
-			         String email = scanner.nextLine();
-			
-			         System.out.println("Password:");
-			
-			         String password = scanner.nextLine();
-			
-			         Login login = new Login(email, password);
-			
+				System.out.println("Email:");
+			    String email = scanner.nextLine();
+			    System.out.println("Password:");
+			    String password = scanner.nextLine();			
+			    Login login = new Login(email, password);
 		     if(login.verify()) {
-		    	 
-				 user = login.userLogin();
-				
-				 System.out.println(user.toString());
-				
-				 System.out.println("Welcome back!");
-			}
-		
-			else
+		    	 user = login.userLogin();
+		    	 System.out.println(user.toString());
+		    	 System.out.println("Welcome back!");
+		    	 Services services = user.fawryPayment("Internet");
+			}else
 				System.out.println("Email or password is incorrect");
 			}
-			else { System.out.println("Email:");
+			else {
+				System.out.println("Email:");
 			
-			      String email = scanner.nextLine();
+			    String email = scanner.nextLine();
 			
-			      System.out.println("Password:");
+			    System.out.println("Password:");
 			
-			      String password = scanner.nextLine();
+			    String password = scanner.nextLine();
 			
-			      System.out.println("User name:");
+			    System.out.println("User name:");
 			
-			      String uname = scanner.nextLine();
+			    String uname = scanner.nextLine();
 			
-			      Register r=new Register(email,password,uname);
+			    Register r=new Register(email,password,uname);
 			
-			      r.register();
+			    r.register();
 			}
 		}
 	}

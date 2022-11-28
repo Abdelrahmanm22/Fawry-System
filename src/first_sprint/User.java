@@ -1,6 +1,6 @@
 package first_sprint;
 
-public class User {
+public abstract class User {
 
 	protected String username;
 	protected String email;
@@ -32,6 +32,9 @@ public class User {
 		return type;
 	}
 
+	public abstract Services fawryPayment(String type) ;
+	
+	
 	@Override
 	public String toString() {
 		return "User [name=" + username + ", email=" + email + ", password=" + password + "]";

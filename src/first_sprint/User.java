@@ -32,7 +32,7 @@ public abstract class User {
 		return type;
 	}
 
-	public abstract Services fawryPayment(String type) ;
+	//public abstract Services fawryPayment(String type) ;
 	
 	
 	@Override

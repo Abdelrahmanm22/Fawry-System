@@ -24,7 +24,9 @@ public class LoginPage {
 		    	 user = login.userLogin();
 		    	 System.out.println(user.toString());
 		    	 System.out.println("Welcome back!");
-		    	 Services services = user.fawryPayment("Internet");
+		    	 //Services services = user.fawryPayment("Internet");
+		    	 
+		    	 new chooseservices((Client)user);
 			}else
 				System.out.println("Email or password is incorrect");
 			}

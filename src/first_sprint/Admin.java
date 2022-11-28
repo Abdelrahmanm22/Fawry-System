@@ -25,9 +25,6 @@ public class Admin extends User{
 		
 	}
 
-	public  Services fawryPayment(String type) {
-		return null;
-	}
 	
 	@Override
 	public String toString() {

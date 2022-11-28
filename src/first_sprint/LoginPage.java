@@ -22,7 +22,8 @@ public class LoginPage {
 			    Login login = new Login(email, password);
 		     if(login.verify()) {
 		    	 user = login.userLogin();
-		    	 System.out.println(user.toString());
+		    	 Client c = (Client) user;
+		    	 System.out.println(c.toString());
 		    	 System.out.println("Welcome back!");
 		    	 Services services = user.fawryPayment("Internet");
 			}else

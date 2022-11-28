@@ -12,6 +12,7 @@ public class Database {
 	private static File file = new File("D:\\University\\Advanced SW\\Project\\Phase1\\FawrySystem\\Users.txt");
 
 	private Database() {
+		
 	}
 
 	

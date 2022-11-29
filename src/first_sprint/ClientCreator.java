@@ -1,15 +1,31 @@
-//package first_sprint;
-//
-//public class ClientCreator {
-//
-//	Client client;
-//	
-//	public Services createServices() {
-//		
-//		c
-//	}
-//	
-//	public Services fawryPayment() {
-//		
-//	}
-//}
+package first_sprint;
+
+public class ClientCreator {
+
+	Client client;
+	
+	public ClientCreator(Client client) {
+		this.client = client;
+	}
+	public  Services createServices(String type){
+        if (type.equals("mobile recharge")) {
+            return new MobileRecharge();
+        } else if (type.equals("internet payment")) {
+            return new InternetPayment();
+        } else if (type.equals("landline")) {
+            return new Landline();
+        } else if (type.equals("donations")) {
+         return new Donations();
+        }
+        return null;
+    }
+	
+	
+	
+	public Services fawryPayment(String type) {
+		Services services;
+		services = createServices(type);
+		services.payment();
+		return services;
+	}
+}

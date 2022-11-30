@@ -3,9 +3,8 @@ package first_sprint;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Home_number extends Field_decorator {
-
-	public Home_number(Service_provider sp) {
+public class Receipt extends Field_decorator{
+	public Receipt(Service_provider sp) {
 		super(sp);
 		// TODO Auto-generated constructor stub
 	}
@@ -17,7 +16,7 @@ public class Home_number extends Field_decorator {
 			
 			pn=new ArrayList<String>();
 		}
-		System.out.println("Enter your Home number");
+		System.out.println("Choose Your Receipt (Monthly receipt) or (Quarter receipt): ");
 		Scanner input=new Scanner(System.in);
 		pn.add(input.nextLine());
 		return pn;

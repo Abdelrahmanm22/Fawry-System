@@ -25,7 +25,7 @@ public class ClientCreator {
 	public Services fawryPayment(String type) {
 		Services services;
 		services = createServices(type);
-		services.payment();
+//		services.payment();
 		return services;
 	}
 }

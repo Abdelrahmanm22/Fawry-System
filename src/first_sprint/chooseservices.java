@@ -1,5 +1,6 @@
 package first_sprint;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 public class chooseservices {
 
 	ClientCreator cc;
-	public chooseservices(Client client) {
+	public chooseservices(Client client) throws FileNotFoundException {
 	
 		cc = new ClientCreator(client);
 		Services services; //= cc.fawryPayment("Internet");
@@ -32,8 +33,16 @@ public class chooseservices {
 		    
 		    if(option.equals("1"))
 		    	services = cc.fawryPayment("mobile recharge");
-		    else if(option.equals("2"))
-		    	services = cc.fawryPayment("internet");
+		    else if(option.equals("2")) {
+		    	services = cc.fawryPayment("internet payment");
+
+		    	services.get_Providers();
+		    	System.out.println("Enter the number of your provider:");
+		    	services.showProviders(services.providers);
+		    	int option2 = input.nextInt();
+		    	ArrayList<String> answers = services.providers.get(option2).get_answer();
+		    	
+		    }
 		    else if(option.equals("3"))
 		    	services = cc.fawryPayment("landline");
 		    else if(option.equals("4"))
@@ -64,7 +73,7 @@ public class chooseservices {
 			    	System.out.println("Search not found");
 			    
 		    }
-		    new Choose_service_provider ();
+		    //new Choose_service_provider ();
 
 		}
 	}

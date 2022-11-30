@@ -64,7 +64,7 @@ public class chooseservices {
 			    	System.out.println("Search not found");
 			    
 		    }
-		    	
+		    new Choose_service_provider ();
 
 		}
 	}

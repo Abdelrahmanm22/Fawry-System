@@ -1,20 +1,21 @@
 package first_sprint;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Services {
 	
-	List<String> providers = new ArrayList<>();
+	List<Service_provider> providers;// = new ArrayList<>();
 	public abstract void payment();
-	public void showProviders() {
+	public void showProviders(List<Service_provider> providers) {
 		int i=1;
-		for(String p: providers) {
-		    	System.out.println(i+". "+p);
+		for(Service_provider p: providers) {
+		    	System.out.println(i+". "+p.name);
 		    	i++;
 		}
 	}
-	public abstract void get_Providers();
+	public abstract void get_Providers() throws FileNotFoundException;
 	
 
 }

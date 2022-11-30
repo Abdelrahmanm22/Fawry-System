@@ -12,8 +12,8 @@ public class Landline extends Services{
 	
 	public void showProviders() {
 		int i=1;
-		 for(String p: providers) {
-		    	System.out.println(i+". "+p);
+		 for(Service_provider p: providers) {
+		    	System.out.println(i+". "+p.name);
 		    	i++;
 		    }
 	}

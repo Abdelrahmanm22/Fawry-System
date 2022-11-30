@@ -9,11 +9,8 @@ public class Database {
 
 	private static Database instance = new Database();
 	private Scanner scanner;
-<<<<<<< HEAD
-	private static File file = new File("D:\\University\\Advanced SW\\Project\\Phase1\\FawrySystem\\Users.txt");
-=======
-	private static File file = new File("C:\\Users\\Youssef Dieaa\\Downloads\\advanced_softproj\\Fawry-System\\Users.txt");
->>>>>>> 776e9ac28e92e58024219fcf29ccf74e13cb5e3f
+	private static File file = new File("D:\\F  C  I\\Fawry_System\\Users.txt");
+
 	private Database() {
 		
 	}

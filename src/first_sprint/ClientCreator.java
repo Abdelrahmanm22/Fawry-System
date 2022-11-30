@@ -8,13 +8,13 @@ public class ClientCreator {
 		this.client = client;
 	}
 	public  Services createServices(String type){
-        if (type.equals("Mobile")) {
+        if (type.equals("mobile recharge")) {
             return new MobileRecharge();
-        } else if (type.equals("Internet")) {
+        } else if (type.equals("internet payment")) {
             return new InternetPayment();
-        } else if (type.equals("Landline")) {
+        } else if (type.equals("landline")) {
             return new Landline();
-        } else if (type.equals("Donations")) {
+        } else if (type.equals("donations")) {
          return new Donations();
         }
         return null;

@@ -41,7 +41,7 @@ public class chooseservices {
 		    	services.showProviders(services.providers);
 		    	int option2 = input.nextInt();
 		    	ArrayList<String> answers = services.providers.get(option2).get_answer();
-		    	
+		    	new choose_payment_method(answers.get(answers.size()-1),client);
 		    }
 		    else if(option.equals("3"))
 		    	services = cc.fawryPayment("landline");
@@ -74,7 +74,7 @@ public class chooseservices {
 			    
 		    }
 		    //new Choose_service_provider ();
-
+		    
 		}
 	}
 

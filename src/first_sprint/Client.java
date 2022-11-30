@@ -2,7 +2,7 @@ package first_sprint;
 
 public class Client extends User{
 	
-	private double walletBalance;
+	protected double walletBalance;
 
 	public Client(String email, String type, String password, String username, double walletBalance) {
 		super(email, type, password, username);
@@ -19,6 +19,7 @@ public class Client extends User{
 				+ password + ", type=" + type + "]";
 	}
 	
+
 
 	
 }

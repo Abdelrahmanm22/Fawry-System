@@ -19,7 +19,9 @@ public class Amount extends Field_decorator{
 		}
 		System.out.println("Enter your Amount");
 		Scanner input=new Scanner(System.in);
+		String amount = input.nextLine();
 		pn.add(input.nextLine());
+//		new choose_payment_method(amount);
 		return pn;
 	}
 

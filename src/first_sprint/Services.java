@@ -8,7 +8,7 @@ public abstract class Services {
 	
 	List<Service_provider> providers;// = new ArrayList<>();
 	public abstract void payment();
-	public void showProviders(List<Service_provider> providers) {
+	public void showProviders() {
 		int i=1;
 		for(Service_provider p: providers) {
 		    	System.out.println(i+". "+p.name);

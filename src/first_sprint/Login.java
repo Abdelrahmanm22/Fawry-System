@@ -18,7 +18,6 @@ public class Login extends Authentication{
 	public boolean verify() {
 		for(User user :database.getUsers()) {
 			if(user.getEmail().equals(email)) {
-				System.out.println(user.toString());
 				if(user.getPassword().equals(password)) {
 					return true;
 				}

@@ -1,8 +1,20 @@
 package first_sprint;
 
-public interface Services {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Services {
 	
-	public void payment();
+	List<String> providers = new ArrayList<>();
+	public abstract void payment();
+	public void showProviders() {
+		int i=1;
+		for(String p: providers) {
+		    	System.out.println(i+". "+p);
+		    	i++;
+		}
+	}
+	public abstract void get_Providers();
 	
 
 }

@@ -1,10 +1,19 @@
 package first_sprint;
 
-public class MobileRecharge implements Services{
+import java.util.ArrayList;
+import java.util.List;
 
-	MobileRecharge mobileRecharge;
+public class MobileRecharge extends Services{
+
+	//MobileRecharge mobileRecharge;
+	List<String> providers = new ArrayList<>();
 	public void payment(){
 		System.out.println("Mobile Recharge succ");
+	}
+	
+	
+	public  void get_Providers() {
+		
 	}
 	
 	

@@ -10,11 +10,11 @@ public class LoginPage {
 		User user;
 		
 		while(true) {
-			System.out.println(" if you want to sign in please enter 1 or if u have an account already enter 0 ");
+			System.out.print("If you want to sign up please enter 1 or if u have an account already enter 0: ");
 			Scanner input=new Scanner(System.in);
-			Boolean ok;
-			ok=input.nextBoolean();
-			if(ok) {
+			String ok;
+			ok=input.nextLine();
+			if(ok.equals("0")) {
 				System.out.println("Email:");
 			    String email = scanner.nextLine();
 			    System.out.println("Password:");
@@ -28,10 +28,10 @@ public class LoginPage {
 		    	 //Services services = user.fawryPayment("Internet");
 		    	 
 		    	 new chooseservices((Client)user);
-			}else
+		     }else
 				System.out.println("Email or password is incorrect");
 			}
-			else {
+			else if(ok.equals("1")){
 				System.out.println("Email:");
 			
 			    String email = scanner.nextLine();
@@ -47,6 +47,8 @@ public class LoginPage {
 			    Register r=new Register(email,password,uname);
 			
 			    r.register();
+			}else {
+				System.out.println("Please Run Again And enter 0 or 1");
 			}
 		}
 	}

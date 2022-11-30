@@ -31,23 +31,43 @@ public class chooseservices {
 
 		    String option = input.nextLine();
 		    
-		    if(option.equals("1"))
+		    if(option.equals("1")) {
 		    	services = cc.fawryPayment("mobile recharge");
+		    
+		    	services.get_Providers();
+		    	System.out.println("Enter the number of your provider:");
+		    	services.showProviders();
+		    	int option2 = input.nextInt();
+		    	ArrayList<String> answers = services.providers.get(option2).get_answer();
+		    }
 		    else if(option.equals("2")) {
 		    	services = cc.fawryPayment("internet payment");
 
 		    	services.get_Providers();
 		    	System.out.println("Enter the number of your provider:");
-		    	services.showProviders(services.providers);
+		    	services.showProviders();
 		    	int option2 = input.nextInt();
 		    	ArrayList<String> answers = services.providers.get(option2).get_answer();
 		    	
 		    }
-		    else if(option.equals("3"))
+		    else if(option.equals("3")) {
 		    	services = cc.fawryPayment("landline");
-		    else if(option.equals("4"))
+		    	
+		    	services.get_Providers();
+		    	System.out.println("Enter the number of your provider:");
+		    	services.showProviders();
+		    	int option2 = input.nextInt();
+		    	ArrayList<String> answers = services.providers.get(option2).get_answer();
+		    }
+		    else if(option.equals("4")) {
 		    	services = cc.fawryPayment("donations");
 		    
+		    	services.get_Providers();
+		    	System.out.println("Enter the number of your provider:");
+		    	services.showProviders();
+		    	int option2 = input.nextInt();
+		    	ArrayList<String> answers = services.providers.get(option2).get_answer();
+		    }
 		    else if(option.equals("$")) {
 		    	System.out.print("Search on: ");
 			    String search = input.nextLine();
@@ -61,10 +81,17 @@ public class chooseservices {
 
 			    		System.out.println("Do you want this service?(answer 0 or 1)");
 			    		option = input.nextLine();
-			    		if(option.equals("1"))
+			    		if(option.equals("1")) {
 			    			services = cc.fawryPayment(i);
+			    			
+			    			services.get_Providers();
+					    	System.out.println("Enter the number of your provider:");
+					    	services.showProviders();
+					    	int option2 = input.nextInt();
+					    	ArrayList<String> answers = services.providers.get(option2).get_answer();
+			    		}
 			    		else
-			    			break;
+			    			continue;
 			    	}
 			    	
 			    }

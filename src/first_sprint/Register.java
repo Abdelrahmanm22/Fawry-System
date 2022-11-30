@@ -12,7 +12,7 @@ public class Register extends Authentication{
 	}
 	public void register() throws IOException {
 		boolean ok=true;
-		 BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Youssef Dieaa\\Downloads\\advanced_softproj\\Fawry-System\\Users.txt", true));
+		 BufferedWriter writer = new BufferedWriter(new FileWriter("Users.txt", true));
 		for(User c1: database.getUsers()){
 			if(c1.getType().equals("client")) {
 				

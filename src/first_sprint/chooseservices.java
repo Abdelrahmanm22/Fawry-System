@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import order.BaseReciept;
+import order.DiscountCondition;
+import order.Order;
+import order.Receipt;
+
 public class chooseservices {
 
 	ClientCreator cc;
@@ -12,6 +17,14 @@ public class chooseservices {
 	
 		cc = new ClientCreator(client);
 		Services services; //= cc.fawryPayment("Internet");
+		Order order;
+		BaseReciept reciept;
+		
+		DiscountList list = DiscountList.getInstance();
+//		list.addDiscount("internet payment", 0.2);
+//		list.addDiscount("first time",0.1);
+//		list.addDiscount("mobile recharge", 0.3);
+//		list.addDiscount("all", 0.5);
 		
 		List<String> servicesList = new ArrayList<>();
 		servicesList.add("mobile recharge");
@@ -27,6 +40,8 @@ public class chooseservices {
 			System.out.println("3. Landline");
 			System.out.println("4. Donations");
 			System.out.println("$. Search...");
+			System.out.println("#. Logout");
+
 
 
 		    String option = input.nextLine();
@@ -38,8 +53,11 @@ public class chooseservices {
 		    	System.out.println("Enter the number of your provider:");
 		    	services.showProviders();
 		    	int option2 = input.nextInt();
-		    	ArrayList<String> answers = services.providers.get(option2).get_answer();
-		    	new choose_payment_method(answers.get(answers.size()-1),client);
+		    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
+		    	order = new Order("mobile recharge", answers.get(answers.size()-1));
+		    	reciept = new Receipt(order);
+		    	new choose_payment_method(reciept,client);
+		    	client.addOrder(reciept.getOrderDetails());
 		    }
 		    else if(option.equals("2")) {
 		    	services = cc.fawryPayment("internet payment");
@@ -48,8 +66,11 @@ public class chooseservices {
 		    	System.out.println("Enter the number of your provider:");
 		    	services.showProviders();
 		    	int option2 = input.nextInt();
-		    	ArrayList<String> answers = services.providers.get(option2).get_answer();
-		    	new choose_payment_method(answers.get(answers.size()-1),client);
+		    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
+		    	order = new Order("internet payment", answers.get(answers.size()-1));
+		    	reciept = new Receipt(order);
+		    	new choose_payment_method(reciept,client);
+		    	client.addOrder(reciept.getOrderDetails());
 		    }
 		    else if(option.equals("3")) {
 		    	services = cc.fawryPayment("landline");
@@ -58,8 +79,11 @@ public class chooseservices {
 		    	System.out.println("Enter the number of your provider:");
 		    	services.showProviders();
 		    	int option2 = input.nextInt();
-		    	ArrayList<String> answers = services.providers.get(option2).get_answer();
-		    	new choose_payment_method(answers.get(answers.size()-1),client);
+		    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
+		    	order = new Order("landline", answers.get(answers.size()-1));
+		    	reciept = new Receipt(order);
+		    	new choose_payment_method(reciept,client);
+		    	client.addOrder(reciept.getOrderDetails());
 		    }
 		    else if(option.equals("4")) {
 		    	services = cc.fawryPayment("donations");
@@ -68,8 +92,11 @@ public class chooseservices {
 		    	System.out.println("Enter the number of your provider:");
 		    	services.showProviders();
 		    	int option2 = input.nextInt();
-		    	ArrayList<String> answers = services.providers.get(option2).get_answer();
-		    	new choose_payment_method(answers.get(answers.size()-1),client);
+		    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
+		    	order = new Order("donations", answers.get(answers.size()-1));
+		    	reciept = new Receipt(order);
+		    	new choose_payment_method(reciept,client);
+		    	client.addOrder(reciept.getOrderDetails());
 		    }
 		    else if(option.equals("$")) {
 		    	System.out.print("Search on: ");
@@ -91,8 +118,11 @@ public class chooseservices {
 					    	System.out.println("Enter the number of your provider:");
 					    	services.showProviders();
 					    	int option2 = input.nextInt();
-					    	ArrayList<String> answers = services.providers.get(option2).get_answer();
-					    	new choose_payment_method(answers.get(answers.size()-1),client);
+					    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
+					    	order = new Order(i, answers.get(answers.size()-1));
+					    	reciept = new Receipt(order);
+					    	new choose_payment_method(reciept,client);
+					    	client.addOrder(order);
 					    	
 			    		}
 			    		else
@@ -104,6 +134,9 @@ public class chooseservices {
 			    if(!foundResult) 
 			    	System.out.println("Search not found");
 			    
+		    }
+		    else if(option.equals("#")) {
+		    	break;
 		    }
 		    //new Choose_service_provider ();
 		    

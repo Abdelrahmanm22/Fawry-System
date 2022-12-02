@@ -2,9 +2,11 @@ package first_sprint;
 
 import java.util.Scanner;
 
+import order.BaseReciept;
+
 public class choose_payment_method {
 	
-	public choose_payment_method(String amount,Client client) {
+	public choose_payment_method(BaseReciept reciept,Client client) {
 		
 		System.out.println("Choose method for payment : ");
 		System.out.println("1. Cash");
@@ -17,17 +19,17 @@ public class choose_payment_method {
 		
 		if(option.equals("1"))
 		{
-			pm = new pay_cash(amount);
+			pm = new pay_cash(reciept, client);
 			pm.performpay();
 		}
 		else if(option.equals("2"))
 		{
-			pm = new pay_with_card(amount);
+			pm = new pay_with_card(reciept, client);
 			pm.performpay();
 		}
 		else if(option.equals("3"))
 		{
-			pm = new pay_with_wallet(amount,client);
+			pm = new pay_with_wallet(reciept,client);
 			pm.performpay();
 		}
 	};

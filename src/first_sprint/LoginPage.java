@@ -10,6 +10,7 @@ public class LoginPage {
 		User user;
 		
 		while(true) {
+			System.out.println("FawrySystem");
 			System.out.print("If you want to sign up please enter 1 or if u have an account already enter 0: ");
 			Scanner input=new Scanner(System.in);
 			String ok;
@@ -22,12 +23,21 @@ public class LoginPage {
 			    Login login = new Login(email, password);
 		     if(login.verify()) {
 		    	 user = login.userLogin();
-		    	 Client c = (Client) user;
-		    	 System.out.println(c.toString());
-		    	 System.out.println("Welcome back!");
+		    	 if(user.getType().equals("client")) {
+		    		 Client c = (Client) user;
+			    	 System.out.println(c.toString());
+			    	 System.out.println("Welcome back!");
+			    	 new chooseservices((Client)user);
+		    	 }
+		    	 else {
+		    		 Admin a = (Admin) user;
+		    		 System.out.println(a.toString());
+			    	 System.out.println("Welcome back!");
+			    	 new AdminPage(a);
+			    	 
+		    	 }
 		    	 //Services services = user.fawryPayment("Internet");
 		    	 
-		    	 new chooseservices((Client)user);
 		     }else
 				System.out.println("Email or password is incorrect");
 			}

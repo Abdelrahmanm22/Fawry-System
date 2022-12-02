@@ -54,7 +54,7 @@ public class chooseservices {
 		    	services.showProviders();
 		    	int option2 = input.nextInt();
 		    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
-		    	order = new Order("mobile recharge", answers.get(answers.size()-1));
+		    	order = new Order(client.getEmail(),"mobile recharge", answers.get(answers.size()-1));
 		    	reciept = new Receipt(order);
 		    	new choose_payment_method(reciept,client);
 		    	client.addOrder(reciept.getOrderDetails());
@@ -67,7 +67,7 @@ public class chooseservices {
 		    	services.showProviders();
 		    	int option2 = input.nextInt();
 		    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
-		    	order = new Order("internet payment", answers.get(answers.size()-1));
+		    	order = new Order(client.getEmail(),"internet payment", answers.get(answers.size()-1));
 		    	reciept = new Receipt(order);
 		    	new choose_payment_method(reciept,client);
 		    	client.addOrder(reciept.getOrderDetails());
@@ -80,7 +80,7 @@ public class chooseservices {
 		    	services.showProviders();
 		    	int option2 = input.nextInt();
 		    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
-		    	order = new Order("landline", answers.get(answers.size()-1));
+		    	order = new Order(client.getEmail(),"landline", answers.get(answers.size()-1));
 		    	reciept = new Receipt(order);
 		    	new choose_payment_method(reciept,client);
 		    	client.addOrder(reciept.getOrderDetails());
@@ -93,7 +93,7 @@ public class chooseservices {
 		    	services.showProviders();
 		    	int option2 = input.nextInt();
 		    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
-		    	order = new Order("donations", answers.get(answers.size()-1));
+		    	order = new Order(client.getEmail(),"donations", answers.get(answers.size()-1));
 		    	reciept = new Receipt(order);
 		    	new choose_payment_method(reciept,client);
 		    	client.addOrder(reciept.getOrderDetails());
@@ -119,7 +119,7 @@ public class chooseservices {
 					    	services.showProviders();
 					    	int option2 = input.nextInt();
 					    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
-					    	order = new Order(i, answers.get(answers.size()-1));
+					    	order = new Order(client.getEmail(),i, answers.get(answers.size()-1));
 					    	reciept = new Receipt(order);
 					    	new choose_payment_method(reciept,client);
 					    	client.addOrder(order);

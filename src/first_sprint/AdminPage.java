@@ -35,10 +35,10 @@ public class AdminPage {
 				System.out.println("Enter the percentage of the discount:");
 				discount = input.nextDouble()/100;
 				if (option.equals("1")) {
-					discountsList.addDiscount("mobile recharge", discount);
+					discountsList.addDiscount("mobileRecharge", discount);
 				}
 				else if (option.equals("2")) {
-					discountsList.addDiscount("internet payment", discount);
+					discountsList.addDiscount("InternetPayment", discount);
 				}
 				else if (option.equals("3")) {
 					discountsList.addDiscount("landline", discount);

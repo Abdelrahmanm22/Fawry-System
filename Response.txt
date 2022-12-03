@@ -1,2 +1,7 @@
-
-user1@gmail.com mobile recharge accepted
+user1@gmail.com mobileRecharge 100 accepted
+user1@gmail.com mobileRecharge 100 accepted
+user1@gmail.com mobileRecharge 100 accepted
+user1@gmail.com InternetPayment 200 accepted
+user1@gmail.com landline 300 accepted
+user1@gmail.com InternetPayment 200 accepted
+user1@gmail.com InternetPayment 300 accepted

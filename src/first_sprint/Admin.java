@@ -29,7 +29,7 @@ public class Admin extends User implements Subject{
     }
     public void notifyObservers() throws IOException  {
     	for (Observer observer : observers) {
-            observer.update(email,State);
+            observer.update(this.email,State);
         }
     }
     public void statesChanged() throws IOException {

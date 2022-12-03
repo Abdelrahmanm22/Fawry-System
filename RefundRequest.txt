@@ -2,3 +2,5 @@ user1@gmail.com landline 100.00 pending
 user2@gmail.com internet 100.00 pending
 user1@gmail.com mobile 100.00 pending
 user3@gmail.com internet 100.00 pending
+user1@gmail.com mobile recharge 50 
+user1@gmail.com mobile recharge 100Pending

@@ -14,6 +14,7 @@ public abstract class payment_method {
 		this.creator = creator;
 	}
 	
+	
 	public abstract void performpay();
 	
 

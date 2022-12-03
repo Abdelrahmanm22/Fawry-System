@@ -16,20 +16,21 @@ public class Order{
 		this.serviceePrice = serviceePrice;
 	}
 
-
-
 	public String getServiceName() {
 		return serviceName;
 	}
 
+	public String getEmail() {
+		return email;
+	}
 
-
+	
 	public String getServiceePrice() {
 		return serviceePrice;
 	}
 	
 	public void ShowOrder() {
-		System.out.println("Your Orders:");
+		System.out.print("Your Orders:");
 		System.out.println("Service Name: "+this.serviceName+"   Service Price: "+this.serviceePrice);
 	}
 	

@@ -14,7 +14,7 @@ public class Discount extends ReceiptDecorator{
 		// TODO Auto-generated method stub
 		double initialPrice = Double.valueOf(super.reciept.getOrderDetails().getServiceePrice());
 		double finalPrice = initialPrice - (initialPrice*discountValue);
-		Order order = new Order(super.reciept.getOrderDetails().getServiceName(), String.valueOf(finalPrice));
+		Order order = new Order(super.reciept.getOrderDetails().getEmail(),super.reciept.getOrderDetails().getServiceName(), String.valueOf(finalPrice));
 		return order;
 	}
 

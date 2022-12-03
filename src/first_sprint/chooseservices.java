@@ -1,6 +1,7 @@
 package first_sprint;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,11 +10,11 @@ import order.BaseReciept;
 import order.DiscountCondition;
 import order.Order;
 import order.Receipt;
-
+import java.util.ArrayList;
 public class chooseservices {
 
 	ClientCreator cc;
-	public chooseservices(Client client) throws FileNotFoundException {
+	public chooseservices(Client client) throws IOException {
 	
 		cc = new ClientCreator(client);
 		Services services; //= cc.fawryPayment("Internet");
@@ -40,7 +41,9 @@ public class chooseservices {
 			System.out.println("3. Landline");
 			System.out.println("4. Donations");
 			System.out.println("$. Search...");
+			System.out.println("*. Make Refund..");
 			System.out.println("#. Logout");
+			
 
 
 
@@ -134,6 +137,22 @@ public class chooseservices {
 			    if(!foundResult) 
 			    	System.out.println("Search not found");
 			    
+		    }else if(option.equals("*")) {
+		    	int cnt=1;
+		    	ArrayList<Order> ordersList =client.getOrderlist();
+		    	
+		    	for(Order i: ordersList){
+		    	    System.out.print(cnt+". ");
+		    	    i.ShowOrder();
+		    	    cnt++;
+		    	    // output: 25461234
+		    	}
+		    	System.out.print("Enter Number of Refund: ");
+		    	int x = input.nextInt();
+		    	
+		    	RefundFile r =new RefundFile();
+		    	r.changeInFile(ordersList.get(x-1));
+		    	
 		    }
 		    else if(option.equals("#")) {
 		    	break;

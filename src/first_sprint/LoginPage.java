@@ -33,6 +33,7 @@ public class LoginPage {
 		    		 Admin a = (Admin) user;
 		    		 System.out.println(a.toString());
 			    	 System.out.println("Welcome back!");
+			    	 
 			    	 new AdminPage(a);
 		    	 }
 		    	 

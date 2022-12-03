@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import order.BaseReciept;
+import order.Discount;
 import order.DiscountCondition;
 import order.Order;
 import order.Receipt;

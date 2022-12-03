@@ -11,6 +11,7 @@ public class pay_cash extends payment_method {
 
 	pay_cash(BaseReciept reciept, Client creator) {
 		super(reciept, creator);
+		super.reciept=reciept;
 		// TODO Auto-generated constructor stub
 	}
 

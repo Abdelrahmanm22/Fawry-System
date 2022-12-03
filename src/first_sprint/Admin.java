@@ -1,36 +1,51 @@
 package first_sprint;
 
-public class Admin extends User{
+import java.util.ArrayList;
+import java.util.List;
 
-	private String adminId;
+public class Admin extends User implements Subject{
 
+//	private String adminId;
+	private ArrayList<Observer> observers;
+	String State;
 	public Admin(String email, String type, String password, String username, String adminId) {
+		
 		super(email, type, password, username);
-		this.adminId = adminId;
+//		this.adminId = adminId;
+		observers = new ArrayList<Observer>();
 	}
 
-	public String getAdminId() {
-		return adminId;
-	}
+//	public String getAdminId() {
+//		return adminId;
+//	}
 	
-	public void addService() {
-		
+	public void AcceptRefund(Observer o) {
+		observers.add(o);
 	}
+    public void RejectRefund(Observer o) {
+    	observers.remove(o);
+    }
+    public void notifyObservers() {
+    	for (Observer observer : observers) {
+            observer.update(State);
+        }
+    }
+    public void statesChanged() {
+	    notifyObservers();
+    }
 	
-	public void addDiscount() {
-		
-	}
+    public void setSate(String State) {
+	    this.State=State;
+	    statesChanged();
+    }
 	
-	public void showRefunds() {
-		
-	}
 
 	
-	@Override
-	public String toString() {
-		return "Admin [adminId=" + adminId + ", username=" + username + ", email=" + email + ", password=" + password
-				+ ", type=" + type + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Admin [adminId=" + adminId + ", username=" + username + ", email=" + email + ", password=" + password
+//				+ ", type=" + type + "]";
+//	}
 	
 	
 }

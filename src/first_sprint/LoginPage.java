@@ -33,10 +33,10 @@ public class LoginPage {
 		    		 Admin a = (Admin) user;
 		    		 System.out.println(a.toString());
 			    	 System.out.println("Welcome back!");
-			    	 new AdminPage(a);
 			    	 
+			    	 new AdminPage(a);
 		    	 }
-		    	 //Services services = user.fawryPayment("Internet");
+		    	 
 		    	 
 		     }else
 				System.out.println("Email or password is incorrect");

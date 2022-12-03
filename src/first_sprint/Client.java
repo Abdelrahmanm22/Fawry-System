@@ -9,6 +9,11 @@ public class Client extends User{
 	protected double walletBalance;
 	protected ArrayList<Order> ordersList ;
 
+
+    boolean state;
+    public void update(boolean state) {
+	    
+    }
 	public Client(String email, String type, String password, String username, double walletBalance) {
 		super(email, type, password, username);
 		this.walletBalance = walletBalance;
@@ -30,8 +35,8 @@ public class Client extends User{
 		ordersList.add(order);
 	}
 
-	public ArrayList<Order> getOrdersList() {
-		return ordersList;
+	public ArrayList<Order> getOrderlist(){
+		return this.ordersList;
 	}
-	
+
 }

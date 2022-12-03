@@ -1,5 +1,7 @@
 package order;
 
+
+
 public abstract class ReceiptDecorator implements BaseReciept{
 
 	protected BaseReciept reciept;

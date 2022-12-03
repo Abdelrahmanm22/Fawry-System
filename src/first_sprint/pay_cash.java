@@ -16,7 +16,7 @@ public class pay_cash extends payment_method {
 	}
 
 	@Override
-	public void performpay() {
+	public String performpay() {
 		String serviceName = reciept.getOrderDetails().getServiceName();
 		if(discountList.getDiscountList().containsKey("all")) {
 		
@@ -47,6 +47,7 @@ public class pay_cash extends payment_method {
 		}
 		else
 			System.out.println("Successfully pay with cash "+reciept.getOrderDetails().getServiceePrice());
+		return reciept.getOrderDetails().getServiceePrice();
 	}
 
 }

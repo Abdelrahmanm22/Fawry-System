@@ -1,5 +1,6 @@
 package first_sprint;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ public class Admin extends User implements Subject{
 //	private String adminId;
 	private ArrayList<Observer> observers;
 	String State;
+	String email;
 	public Admin(String email, String type, String password, String username, String adminId) {
 		
 		super(email, type, password, username);
@@ -25,17 +27,18 @@ public class Admin extends User implements Subject{
     public void RejectRefund(Observer o) {
     	observers.remove(o);
     }
-    public void notifyObservers() {
+    public void notifyObservers() throws IOException  {
     	for (Observer observer : observers) {
-            observer.update(State);
+            observer.update(email,State);
         }
     }
-    public void statesChanged() {
+    public void statesChanged() throws IOException {
 	    notifyObservers();
     }
 	
-    public void setSate(String State) {
+    public void setSate(String email,String State) throws IOException {
 	    this.State=State;
+	    this.email=email;
 	    statesChanged();
     }
 	

@@ -16,6 +16,18 @@ public class Order{
 		this.serviceePrice = serviceePrice;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
+	}
+
+	public void setServiceePrice(String serviceePrice) {
+		this.serviceePrice = serviceePrice;
+	}
+
 	public String getServiceName() {
 		return serviceName;
 	}

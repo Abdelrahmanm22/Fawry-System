@@ -1,3 +1,7 @@
-/service_providers/
+/authentication/
 /controllers/
+/main/
+/module-info.class
 /payment/
+/service_providers/
+/services/

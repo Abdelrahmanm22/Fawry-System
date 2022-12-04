@@ -18,7 +18,7 @@ public class pay_with_wallet extends payment_method {
 	public String performpay() {
 		double x =creator.getWalletBalance();
 //		this.creator.walletBalance -= Double.valueOf(reciept.getOrderDetails().getServiceePrice());
-		String y;
+		String y = null;
 		String serviceName = reciept.getOrderDetails().getServiceName();
 		if(discountList.getDiscountList().containsKey("all")) {
 		
@@ -26,11 +26,22 @@ public class pay_with_wallet extends payment_method {
 			if(discountList.getDiscountList().containsKey("first time") && creator.ordersList.size()==0) {
 				discountValue += discountList.getDiscountList().get("first time");
 			}
+			
 			discountValue += discountList.getDiscountList().get("all");
+			
 			reciept = new Discount(reciept, discountValue);
-			this.creator.walletBalance -= Double.valueOf(reciept.getOrderDetails().getServiceePrice());
-			y =  creator.getWalletBalance()+"";
-			System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
+			if(this.creator.walletBalance>=Double.valueOf(reciept.getOrderDetails().getServiceePrice())) {
+				this.creator.walletBalance -= Double.valueOf(reciept.getOrderDetails().getServiceePrice());
+				y =  reciept.getOrderDetails().getServiceePrice();
+				System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
+				
+			}else {
+				System.out.println("Not Money Enough");
+				y = "NotEnough";
+			}
+			
+			
+			
 		}
 		
 		else if(discountList.getDiscountList().containsKey(serviceName)) {
@@ -41,16 +52,46 @@ public class pay_with_wallet extends payment_method {
 			}
 			discountValue += discountList.getDiscountList().get(serviceName);
 			reciept = new Discount(reciept, discountValue);
-			System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
+			if(this.creator.walletBalance>=Double.valueOf(reciept.getOrderDetails().getServiceePrice())) {
+				this.creator.walletBalance -= Double.valueOf(reciept.getOrderDetails().getServiceePrice());
+				y =  reciept.getOrderDetails().getServiceePrice();
+				System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
+				
+			}else {
+				System.out.println("Not Money Enough");
+				y = "NotEnough";
+			}
+//			System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
 		}
 		else if(discountList.getDiscountList().containsKey("first time") && creator.ordersList.size()==0) {
 			
 			double discountValue = discountList.getDiscountList().get("first time");
 			reciept = new Discount(reciept, discountValue);
-			System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
+			if(this.creator.walletBalance>=Double.valueOf(reciept.getOrderDetails().getServiceePrice())) {
+				this.creator.walletBalance -= Double.valueOf(reciept.getOrderDetails().getServiceePrice());
+				y =  reciept.getOrderDetails().getServiceePrice();
+				System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
+				
+			}else {
+				System.out.println("Not Money Enough");
+				y = "NotEnough";
+			}
+//			System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
 		}
-		else
-			System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
+		else {
+			if(this.creator.walletBalance>=Double.valueOf(reciept.getOrderDetails().getServiceePrice())) {
+				this.creator.walletBalance -= Double.valueOf(reciept.getOrderDetails().getServiceePrice());
+				y =  reciept.getOrderDetails().getServiceePrice();
+				System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
+				
+			}else {
+				System.out.println("Not Money Enough");
+				y = "NotEnough";
+			}
+		}
+			
+			
+//			System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
 //		try {
 //            String data = FileUtils.readFileToString(textFile);
 //            data = data.replace(x, y);
@@ -58,7 +99,7 @@ public class pay_with_wallet extends payment_method {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-		return reciept.getOrderDetails().getServiceePrice();
+		return y;
 		
 		
 	}

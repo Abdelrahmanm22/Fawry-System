@@ -61,7 +61,8 @@ public class chooseservices {
 		    	order = new Order(client.getEmail(),"mobileRecharge", answers.get(answers.size()-1));
 		    	reciept = new Receipt(order);
 		    	new choose_payment_method(reciept,client);
-		    	client.addOrder(reciept.getOrderDetails());
+		    	if(!reciept.getOrderDetails().getServiceePrice().equals("NotEnough"))
+		    		client.addOrder(reciept.getOrderDetails());
 		    }
 		    else if(option.equals("2")) {
 		    	services = cc.fawryPayment("internet payment");
@@ -142,18 +143,22 @@ public class chooseservices {
 		    else if(option.equals("*")) {
 		    	int cnt=1;
 		    	ArrayList<Order> ordersList =client.getOrderlist();
-		    	
-		    	for(Order i: ordersList){
-		    	    System.out.print(cnt+". ");
-		    	    i.ShowOrder();
-		    	    cnt++;
+		    	if(ordersList.size()>0) {
+		    		for(Order i: ordersList){
+			    	    System.out.print(cnt+". ");
+			    	    i.ShowOrder();
+			    	    cnt++;
+			    	}
+			    	System.out.print("Enter Number of Refund: ");
+			    	int x = input.nextInt();
+			    	
+			    	RefundFile r =new RefundFile();
+			    	r.changeInFile(ordersList.get(x-1));
+			    	client.getOrderlist().remove(x-1);
+		    	}else {
+		    		System.out.println("Not Found Oeders");
 		    	}
-		    	System.out.print("Enter Number of Refund: ");
-		    	int x = input.nextInt();
 		    	
-		    	RefundFile r =new RefundFile();
-		    	r.changeInFile(ordersList.get(x-1));
-		    	client.getOrderlist().remove(x-1);
 		    	
 		    }
 		    else if(option.equals("#")) {

@@ -15,7 +15,7 @@ public class pay_with_wallet extends payment_method {
 	}
 
 	@Override
-	public void performpay() {
+	public String performpay() {
 		double x =creator.getWalletBalance();
 //		this.creator.walletBalance -= Double.valueOf(reciept.getOrderDetails().getServiceePrice());
 		String y;
@@ -58,6 +58,7 @@ public class pay_with_wallet extends payment_method {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+		return reciept.getOrderDetails().getServiceePrice();
 		
 		
 	}

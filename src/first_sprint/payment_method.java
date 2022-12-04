@@ -15,7 +15,7 @@ public abstract class payment_method {
 	}
 	
 	
-	public abstract void performpay();
+	public abstract String performpay();
 	
 
 }

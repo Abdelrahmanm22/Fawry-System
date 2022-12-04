@@ -14,7 +14,7 @@ public class pay_with_card extends payment_method {
 	}
 
 	@Override
-	public void performpay() {
+	public String performpay() {
 		String serviceName = reciept.getOrderDetails().getServiceName();
 		if(discountList.getDiscountList().containsKey("all")) {
 		
@@ -45,6 +45,7 @@ public class pay_with_card extends payment_method {
 		}
 		else
 			System.out.println("Successfully pay with card "+reciept.getOrderDetails().getServiceePrice());
+		return reciept.getOrderDetails().getServiceePrice();
 				
 	}
 

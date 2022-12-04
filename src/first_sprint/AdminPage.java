@@ -1,10 +1,16 @@
 package first_sprint;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import order.Order;
 
 public class AdminPage {
 
-	public AdminPage(Admin admin) {
+	public AdminPage(Admin admin) throws IOException {
 		DiscountList discountsList = DiscountList.getInstance();
 		while(true) {
 			
@@ -13,7 +19,7 @@ public class AdminPage {
 			System.out.println("2. Remove Discount");
 			System.out.println("3. Review Refund Requests");
 			System.out.println("$. Logout");
-			
+
 			Scanner input = new Scanner(System.in);
 			String option = input.nextLine();
 			double discount;
@@ -69,6 +75,38 @@ public class AdminPage {
 				
 			}
 			else if (option.equals("3")) {
+				 ArrayList<String>arr=new ArrayList<String>();
+				 RefundFile rf=new RefundFile();
+				 admin.AcceptRefund(rf);
+				try {
+				      File myObj = new File("RefundRequest.txt");
+				      Scanner myReader = new Scanner(myObj);
+				     
+				      while (myReader.hasNextLine()) {
+				        String data = myReader.nextLine();
+				        arr.add(data);
+				    		    }
+				      myReader.close();
+				      
+				    } catch (FileNotFoundException e) {
+				      System.out.println("An error occurred.");
+				      e.printStackTrace();
+				    }
+				int cnt=1;
+		    	for(String i: arr){
+		    	    System.out.print(cnt+". "+arr.get(cnt-1));
+		    	
+		    	    cnt++;
+		    	    // output: 25461234
+		    	}
+		    	System.out.println(" \n Enter Number of Refund: ");
+		    	int x = Integer.valueOf(input.nextLine());
+		    	String arr1[]=arr.get(x-1).split("\\s");
+		    	System.out.println("Enter the state: ");
+		    	String s;
+		    	s=input.nextLine();
+		    	admin.setSate(arr1[0],s);
+		    	
 				
 			}
 			else if (option.equals("$")) {

@@ -30,6 +30,7 @@ public class Database {
 		            	users.add(new Admin(userData[0], userData[1], userData[2], userData[3], userData[4]));
 		            //System.out.println(data);
 		          }
+		      	scanner.close();
 		    } catch (FileNotFoundException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();

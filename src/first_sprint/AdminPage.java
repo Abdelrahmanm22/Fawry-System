@@ -12,6 +12,8 @@ public class AdminPage {
 
 	public AdminPage(Admin admin) throws IOException {
 		DiscountList discountsList = DiscountList.getInstance();
+		RefundFile rf=new RefundFile();
+		admin.AcceptRefund(rf);
 		while(true) {
 			
 			System.out.println("Enter the number of Service:");
@@ -35,10 +37,10 @@ public class AdminPage {
 				System.out.println("Enter the percentage of the discount:");
 				discount = input.nextDouble()/100;
 				if (option.equals("1")) {
-					discountsList.addDiscount("mobile recharge", discount);
+					discountsList.addDiscount("mobileRecharge", discount);
 				}
 				else if (option.equals("2")) {
-					discountsList.addDiscount("internet payment", discount);
+					discountsList.addDiscount("InternetPayment", discount);
 				}
 				else if (option.equals("3")) {
 					discountsList.addDiscount("landline", discount);
@@ -76,8 +78,7 @@ public class AdminPage {
 			}
 			else if (option.equals("3")) {
 				 ArrayList<String>arr=new ArrayList<String>();
-				 RefundFile rf=new RefundFile();
-				 admin.AcceptRefund(rf);
+				 
 				try {
 				      File myObj = new File("RefundRequest.txt");
 				      Scanner myReader = new Scanner(myObj);
@@ -92,21 +93,24 @@ public class AdminPage {
 				      System.out.println("An error occurred.");
 				      e.printStackTrace();
 				    }
-				int cnt=1;
-		    	for(String i: arr){
-		    	    System.out.print(cnt+". "+arr.get(cnt-1));
-		    	
-		    	    cnt++;
-		    	    // output: 25461234
-		    	}
-		    	System.out.println(" \n Enter Number of Refund: ");
-		    	int x = Integer.valueOf(input.nextLine());
-		    	String arr1[]=arr.get(x-1).split("\\s");
-		    	System.out.println("Enter the state: ");
-		    	String s;
-		    	s=input.nextLine();
-		    	admin.setSate(arr1[0],s);
-		    	
+				if(arr.size()>0) {
+					int cnt=1;
+			    	for(String i: arr){
+			    	    System.out.println(cnt+". "+arr.get(cnt-1));
+			    	
+			    	    cnt++;
+			    	    // output: 25461234
+			    	}
+			    	System.out.println(" \n Enter Number of Refund: ");
+			    	int x = Integer.valueOf(input.nextLine());
+			    	String arr1[]=arr.get(x-1).split("\\s");
+			    	System.out.println("Enter the state: ");
+			    	String s;
+			    	s=input.nextLine();
+			    	admin.setSate(arr1[0],s);
+				}
+				else
+					System.out.println("No refund requests available");
 				
 			}
 			else if (option.equals("$")) {

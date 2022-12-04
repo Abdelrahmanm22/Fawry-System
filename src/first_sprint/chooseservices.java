@@ -58,7 +58,7 @@ public class chooseservices {
 		    	services.showProviders();
 		    	int option2 = input.nextInt();
 		    	ArrayList<String> answers = services.providers.get(option2-1).get_answer();
-		    	order = new Order(client.getEmail(),"MobileRecharge", answers.get(answers.size()-1));
+		    	order = new Order(client.getEmail(),"mobileRecharge", answers.get(answers.size()-1));
 		    	reciept = new Receipt(order);
 		    	new choose_payment_method(reciept,client);
 		    	client.addOrder(reciept.getOrderDetails());
@@ -138,7 +138,8 @@ public class chooseservices {
 			    if(!foundResult) 
 			    	System.out.println("Search not found");
 			    
-		    }else if(option.equals("*")) {
+		    }
+		    else if(option.equals("*")) {
 		    	int cnt=1;
 		    	ArrayList<Order> ordersList =client.getOrderlist();
 		    	
@@ -146,20 +147,18 @@ public class chooseservices {
 		    	    System.out.print(cnt+". ");
 		    	    i.ShowOrder();
 		    	    cnt++;
-		    	    // output: 25461234
 		    	}
 		    	System.out.print("Enter Number of Refund: ");
 		    	int x = input.nextInt();
 		    	
 		    	RefundFile r =new RefundFile();
 		    	r.changeInFile(ordersList.get(x-1));
+		    	client.getOrderlist().remove(x-1);
 		    	
 		    }
 		    else if(option.equals("#")) {
 		    	break;
 		    }
-		    //new Choose_service_provider ();
-		    
 		}
 	}
 

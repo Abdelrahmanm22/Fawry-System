@@ -1,2 +1,1 @@
-user1@gmail.com mobileRecharge 100 Pending
-user1@gmail.com InternetPayment 50 Pending
+user1@gmail.com landline 60 Pending

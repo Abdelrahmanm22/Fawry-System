@@ -20,16 +20,12 @@ public class chooseservices {
 	ClientCreator cc;
 	public chooseservices(Client client) throws IOException {
 	
-		cc = new ClientCreator(client);
+		cc = new ClientCreator();
 		Services services; //= cc.fawryPayment("Internet");
 		Order order;
 		BaseReciept reciept;
 		
 		DiscountList list = DiscountList.getInstance();
-//		list.addDiscount("internet payment", 0.2);
-//		list.addDiscount("first time",0.1);
-//		list.addDiscount("mobile recharge", 0.3);
-//		list.addDiscount("all", 0.5);
 		
 		List<String> servicesList = new ArrayList<>();
 		servicesList.add("mobile recharge");
@@ -44,6 +40,7 @@ public class chooseservices {
 			System.out.println("2. Internet Payment");
 			System.out.println("3. Landline");
 			System.out.println("4. Donations");
+			System.out.println("5. Show available discounts");
 			System.out.println("$. Search...");
 			System.out.println("*. Make Refund..");
 			System.out.println("#. Logout");
@@ -104,6 +101,16 @@ public class chooseservices {
 		    	reciept = new Receipt(order);
 		    	new choose_payment_method(reciept,client);
 		    	client.addOrder(reciept.getOrderDetails());
+		    }
+		    else if(option.equals("5")) {
+		    	for (String name: list.getDiscountList().keySet()) {
+		    	    String key = name.toString();
+		    	    double value = Double.valueOf(list.getDiscountList().get(name))*100;
+		    	    System.out.println(key + " " + value+"%");
+		    	}
+		    	if(list.getDiscountList().containsKey("mobile")) {
+		    		
+		    	}
 		    }
 		    else if(option.equals("$")) {
 		    	System.out.print("Search on: ");

@@ -104,10 +104,14 @@ public class AdminPage {
 			    	System.out.println(" \n Enter Number of Refund: ");
 			    	int x = Integer.valueOf(input.nextLine());
 			    	String arr1[]=arr.get(x-1).split("\\s");
-			    	System.out.println("Enter the state: ");
+			    	System.out.println("Enter the state (1 for accepted, 0 for rejected): ");
 			    	String s;
 			    	s=input.nextLine();
-			    	admin.setSate(arr.get(x-1),s);
+			    	if(s.equals("1"))
+			    		admin.setSate(arr.get(x-1),"accepted");
+			    	else if(s.equals("0"))
+			    		admin.setSate(arr.get(x-1),"rejected");
+			    		
 				}
 				else
 					System.out.println("No refund requests available");

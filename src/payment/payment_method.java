@@ -1,7 +1,7 @@
 package payment;
 
 import controllers.Client;
-import controllers.DiscountList;
+//import controllers.DiscountList;
 
 public abstract class payment_method {
 	

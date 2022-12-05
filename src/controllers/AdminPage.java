@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import payment.DiscountList;
+
 public class AdminPage {
 
 	public AdminPage(Admin admin) throws IOException {

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import payment.BaseReciept;
+import payment.DiscountList;
 import payment.Order;
 import payment.choose_payment_method;
 import payment.Receipt;
@@ -54,7 +55,6 @@ public class chooseservices {
 		    
 		    if(option.equals("1")) {
 		    	services = cc.fawryPayment("mobile recharge");
-		    
 		    	services.get_Providers();
 		    	System.out.println("Enter the number of your provider:");
 		    	services.showProviders();

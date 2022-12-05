@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import service_providers.FieldFactory;
-import service_providers.Internet_service_provider;
+import service_providers.cocrete_service_provider;
 import service_providers.Service_provider;
 
 
@@ -27,7 +27,7 @@ public class InternetPayment extends Services{
 		    String data = scanner.nextLine();
 		    String provider[] = data.split("\\s");
 		    
-		    Service_provider sp = new Internet_service_provider();
+		    Service_provider sp = new cocrete_service_provider();
 		    if(provider[0].equals("internet")) {
 		   
 		    	for(int i =2; i<provider.length; i++) {

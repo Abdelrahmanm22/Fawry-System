@@ -4,11 +4,6 @@ import controllers.Client;
 
 public class ClientCreator {
 
-	Client client;
-	
-	public ClientCreator(Client client) {
-		this.client = client;
-	}
 	public  Services createServices(String type){
         if (type.equals("mobile recharge")) {
             return new MobileRecharge();
